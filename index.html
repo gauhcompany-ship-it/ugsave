@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Savings Goal Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <button class="tab-btn active" data-tab="dashboard">💰 Savings</button>
+            <button class="tab-btn" data-tab="apps">📱 Apps</button>
+        </div>
+
+        <!-- Setup Screen -->
+        <div id="setupScreen" class="screen">
+            <div class="setup-container">
+                <h1 class="title">🎯 Set Your Savings Goal</h1>
+                <input type="text" id="goalName" class="input" placeholder="Goal Name (e.g., New Phone)">
+                <input type="number" id="goalAmount" class="input" placeholder="Goal Amount ($)">
+                <button id="startGoalBtn" class="btn btn-primary">Start Saving</button>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboardScreen" class="screen hidden">
+            <div class="content">
+                <!-- Goal Card -->
+                <div class="card goal-card">
+                    <h2 id="displayGoalName" class="goal-name">Loading...</h2>
+                    <div class="progress-container">
+                        <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-stats">
+                        <span id="currentSavings">$0</span>
+                        <span> / </span>
+                        <span id="goalAmountDisplay">$0</span>
+                    </div>
+                    <div id="progressPercent" class="progress-percent">0% Complete</div>
+                    <div id="remainingAmount" class="remaining-text"></div>
+                </div>
+
+                <!-- Payment Section -->
+                <div id="paymentSection" class="card">
+                    <h3>Make a Payment</h3>
+                    <input type="number" id="paymentAmount" class="input" placeholder="Amount ($)">
+                    <button id="payBtn" class="btn btn-payment">Pay with Flutterwave</button>
+                </div>
+
+                <!-- Goal Met Section -->
+                <div id="goalMetSection" class="card goal-met-card hidden">
+                    <div class="emoji-large">🎉🏆🎊</div>
+                    <h2>Congratulations!</h2>
+                    <p>You've reached your savings goal!</p>
+                    <p>All apps are now unlocked.</p>
+                </div>
+
+                <!-- Transactions -->
+                <div class="card">
+                    <h3>Recent Transactions</h3>
+                    <div id="transactionsList" class="transactions-list">
+                        <p class="no-transactions">No transactions yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apps Screen -->
+        <div id="appsScreen" class="screen hidden">
+            <div class="apps-grid" id="appsGrid">
+                <!-- Apps will be dynamically loaded -->
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
